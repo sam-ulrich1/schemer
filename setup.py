@@ -9,7 +9,7 @@ setuptools.setup(
     description="Powerful schema-based validation of Python dicts",
     license="BSD",
     keywords="validation schema dict list",
-    url="http://github.com/gamechanger/schemer",
+    url="https://github.com/sam-ulrich1/schemer.git",
     packages=["schemer"],
     long_description="Schemer allows users to declare schemas for Python dicts and lists and then validate actual dicts and lists against those schemas.",
     tests_require=['mock', 'nose']
