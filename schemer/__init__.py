@@ -1,7 +1,7 @@
 import types, copy
 from inspect import getargspec
-from exceptions import ValidationException, SchemaFormatException
-from extension_types import Mixed
+from .exceptions import ValidationException, SchemaFormatException
+from .extension_types import Mixed
 
 
 class Array(object):
@@ -27,7 +27,7 @@ class Schema(object):
         """Applies the defaults described by the this schema to the given
         document instance as appropriate. Defaults are only applied to
         fields which are currently unset."""
-        for field, spec in self.doc_spec.iteritems():
+        for field, spec in self.doc_spec.items():
             field_type = spec['type']
             if field not in instance:
                 if 'default' in spec:
@@ -66,7 +66,7 @@ class Schema(object):
 
     def _verify(self, path_prefix=None):
         """Verifies that this schema's doc spec is valid and makes sense."""
-        for field, spec in self.doc_spec.iteritems():
+        for field, spec in self.doc_spec.items():
             path = self._append_path(path_prefix, field)
 
             # Standard dict-based spec
@@ -195,7 +195,7 @@ class Schema(object):
 
         # Loop over each field in the schema and check the instance value conforms
         # to its spec
-        for field, spec in self.doc_spec.iteritems():
+        for field, spec in self.doc_spec.items():
             path = self._append_path(path_prefix, field)
 
             # If the field is present, validate it's value.
